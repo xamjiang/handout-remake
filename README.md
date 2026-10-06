@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/images/hero.png" alt="四頁講義範例：節首頁、概念頁、例題頁、練習頁" width="100%">
+  <img src="docs/images/hero.webp" alt="四頁講義範例：節首頁、概念頁、例題頁、練習頁" width="100%">
 </p>
 
 # iPad 深色講義
@@ -15,7 +15,7 @@
 老師的投影片是寫給「已經聽過課的人」看的：重點很密、步驟常常省略、公式和圖只存在圖片裡。這個 skill 讓 AI 先讀懂教材，再**依照初學者需要的順序重新教一次**，最後排成固定格式的講義。
 
 <p align="center">
-  <img src="docs/images/workflow.png" alt="流程：丟入教材 → AI 重新教一次 → 排版與自動檢查 → 在 iPad 上讀寫" width="100%">
+  <img src="docs/images/workflow.webp" alt="流程：丟入教材 → AI 重新教一次 → 排版與自動檢查 → 在 iPad 上讀寫" width="100%">
 </p>
 
 每一份講義都有這些特點：
@@ -170,8 +170,8 @@ AI 會依序完成這些事，過程中不需要你介入：
 
 <table>
   <tr>
-    <td width="50%"><img src="docs/images/page-opener.png" alt="節首頁"></td>
-    <td width="50%"><img src="docs/images/page-concept.png" alt="概念頁"></td>
+    <td width="50%"><img src="docs/images/page-opener.webp" alt="節首頁"></td>
+    <td width="50%"><img src="docs/images/page-concept.webp" alt="概念頁"></td>
   </tr>
   <tr>
     <td><b>節首頁</b>：一句話說出這節在問什麼，列出讀完之後能做到的事，以及對應的投影片頁碼、閱讀時間與先備知識。</td>
@@ -183,7 +183,7 @@ AI 會依序完成這些事，過程中不需要你介入：
 
 <table>
   <tr>
-    <td width="50%"><img src="docs/images/page-example.png" alt="例題頁"></td>
+    <td width="50%"><img src="docs/images/page-example.webp" alt="例題頁"></td>
     <td width="50%">
       <p>每一題都先列出<b>已知、要求、想法</b>，再用編號步驟一步一步解，每一步都有一句小標說明在做什麼。</p>
       <p>最後一步固定是<b>檢查答案合不合理</b>，養成驗算的習慣。</p>
@@ -195,7 +195,7 @@ AI 會依序完成這些事，過程中不需要你介入：
 ### 練習頁與解答頁
 
 <p align="center">
-  <img src="docs/images/practice-answer.png" alt="左邊是練習頁，右邊是解答頁" width="100%">
+  <img src="docs/images/practice-answer.webp" alt="左邊是練習頁，右邊是解答頁" width="100%">
 </p>
 
 練習題分成**基本、觀念、變化、綜合**四種層次，每頁最多三題，每題都有點陣書寫區。**解答一定在練習的下一頁**：先給出最終答案，再給完整步驟，頁尾的「寫錯了？回頭看這裡」會告訴你該回去看哪一頁。
@@ -204,8 +204,8 @@ AI 會依序完成這些事，過程中不需要你介入：
 
 <table>
   <tr>
-    <td width="50%"><img src="docs/images/page-figure.png" alt="函數曲線圖與動手做區塊"></td>
-    <td width="50%"><img src="docs/images/page-stack.png" alt="記憶體 stack 變化圖"></td>
+    <td width="50%"><img src="docs/images/page-figure.webp" alt="函數曲線圖與動手做區塊"></td>
+    <td width="50%"><img src="docs/images/page-stack.webp" alt="記憶體 stack 變化圖"></td>
   </tr>
   <tr>
     <td>函數曲線與「動手做」：附上可以自己執行的程式碼，親眼看到概念的結果。</td>
@@ -216,14 +216,14 @@ AI 會依序完成這些事，過程中不需要你介入：
 所有圖解都使用同一套色盤，**同一個顏色在整份講義裡只代表一件事**，而且和公式裡的色塊對應。圖解是向量繪製，放大後依然清晰：
 
 <p align="center">
-  <img src="docs/images/detail-figure.png" alt="圖解放大後的細節" width="100%">
+  <img src="docs/images/detail-figure.webp" alt="圖解放大後的細節" width="100%">
 </p>
 
 ### 複習頁
 
 <table>
   <tr>
-    <td width="50%"><img src="docs/images/page-review.png" alt="複習頁"></td>
+    <td width="50%"><img src="docs/images/page-review.webp" alt="複習頁"></td>
     <td width="50%">
       <p>每份講義的最後依序是：</p>
       <ol>
