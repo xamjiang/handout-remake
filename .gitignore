@@ -1,0 +1,14 @@
+# 相依套件
+node_modules/
+package-lock.json
+
+# 建置產物與暫存
+*.pdf
+!docs/**/*.pdf
+*.skill
+*.zip
+handout/
+
+# 系統檔
+.DS_Store
+Thumbs.db
