@@ -1,0 +1,226 @@
+<!doctype html>
+<!-- FILE: template.html ｜ 示範內容請整段替換 -->
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<title>課名 節次 標題</title>
+<link rel="stylesheet" href="handout.css">
+</head>
+<body>
+
+<!-- ===== 節首頁 ===== -->
+<section class="page opener">
+ <div class="body">
+  <svg class="glyph" viewBox="0 0 220 220" aria-hidden="true">
+    <circle cx="110" cy="110" r="78" fill="none" stroke="var(--blue)" stroke-width="12"/>
+    <path d="M70,110 h22 l8,-20 l16,40 l16,-40 l8,20 h22" fill="none" stroke="var(--orange)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="110" cy="32" r="11" fill="var(--green)"/>
+  </svg>
+  <p class="course">課程名稱<br>第 N 章　章名</p>
+  <p class="secno">N.M</p>
+  <h1>小節標題<br>一句話說出這節在問什麼</h1>
+  <p class="lead">用兩三句話，從讀者熟悉的情境帶出這一節要解決的問題。</p>
+  <div class="goals">
+   <h3>讀完這一節，你能夠</h3>
+   <ol>
+    <li>可以驗收的能力一（對應段落 1）</li>
+    <li>可以驗收的能力二（對應段落 2）</li>
+    <li>可以驗收的能力三（對應段落 3）</li>
+   </ol>
+  </div>
+  <div class="meta">
+   <div><span>對應投影片</span>Chapter N，p.1–10</div>
+   <div><span>閱讀時間</span>約 30 分鐘</div>
+   <div><span>練習</span>3 題，附詳解</div>
+   <div><span>先備知識</span>分數、科學記號</div>
+  </div>
+ </div>
+</section>
+
+<!-- ===== 概念頁：情境 → 定義 → 圖解 → 公式 ===== -->
+<section class="page">
+ <div class="rh"><span>N.M　小節標題</span><span>段落 1 ／ 3</span></div>
+ <div class="body">
+  <p class="eyebrow">段落 1 <span class="src">　投影片 p.3</span></p>
+  <h2>段落標題：一個概念</h2>
+
+  <p>先用生活情境開場，再帶出術語：水管裡的水壓越大，水流越強。電路裡對應的是<b>電壓</b> <span class="en">voltage</span> 與<b>電流</b> <span class="en">current</span>，擋住水流的程度則是<b>電阻</b> <span class="en">resistance</span>。</p>
+
+  <dl class="terms">
+   <div>
+    <dt>電流 <span class="en">current</span></dt>
+    <dd>每秒有多少電荷流過。<span class="unit">單位：安培 A<br>生活中：手機充電約 1–3 A</span></dd>
+   </div>
+   <div>
+    <dt>電阻 <span class="en">resistance</span></dt>
+    <dd>阻擋電流的程度，越大越難流過。<span class="unit">單位：歐姆 Ω</span></dd>
+   </div>
+  </dl>
+
+  <figure>
+   <div class="panel">
+    <svg viewBox="0 0 626 132" role="img" aria-label="電壓固定時，電阻加倍，電流減半">
+      <text x="13" y="14" font-size="14" font-weight="600" fill="var(--orange-ink)">電阻</text>
+      <text x="333" y="14" font-size="14" font-weight="600" fill="var(--blue-ink)">電流</text>
+      <g fill="var(--orange)"><rect x="13" y="30" width="50" height="24" rx="8"/><rect x="13" y="68" width="100" height="24" rx="8"/><rect x="13" y="106" width="200" height="24" rx="8"/></g>
+      <g font-size="14" fill="var(--text)"><text x="73" y="47">100 Ω</text><text x="123" y="85">200 Ω</text><text x="223" y="123">400 Ω</text></g>
+      <g fill="var(--blue)"><rect x="333" y="30" width="200" height="24" rx="8"/><rect x="333" y="68" width="100" height="24" rx="8"/><rect x="333" y="106" width="50" height="24" rx="8"/></g>
+      <g font-size="14" fill="var(--text)"><text x="543" y="47">80 mA</text><text x="443" y="85">40 mA</text><text x="393" y="123">20 mA</text></g>
+    </svg>
+   </div>
+   <figcaption><b>圖 1</b>電壓固定在 8 V。橘色是電阻，藍色是電流：電阻每加倍一次，電流就減半一次。</figcaption>
+  </figure>
+
+  <div class="formula">
+   <div class="eq"><span class="v green">電壓</span><span class="op">=</span><span class="v blue">電流</span><span class="op">×</span><span class="v orange">電阻</span></div>
+   <div class="tex">\cG{V} = \cB{I}\,\cO{R}</div>
+   <div class="eq-en">Voltage = Current × Resistance（Ohm's law）</div>
+  </div>
+
+  <p><mark>整頁最關鍵的一句話放在這裡。</mark>其餘說明維持一般內文。</p>
+ </div>
+ <div class="pn">2</div>
+</section>
+
+<!-- ===== 例題頁 ===== -->
+<section class="page">
+ <div class="rh"><span>N.M　小節標題</span><span>段落 1 ／ 3</span></div>
+ <div class="body">
+  <section class="example">
+   <p class="tag">例題 1<span class="lv">投影片 p.4</span></p>
+   <p class="q">一顆 9 V 的電池接上 450 Ω 的電阻，流過的電流是多少 mA？</p>
+   <dl class="given">
+    <dt>已知</dt><dd>電壓 9 V，電阻 450 Ω</dd>
+    <dt>要求</dt><dd>電流，單位 mA</dd>
+    <dt>想法</dt><dd>公式裡只有電流未知，移項後代入，最後換單位。</dd>
+   </dl>
+   <ol class="steps">
+    <li><p class="st">把公式移項成要求的量</p><div class="tex">I = \frac{V}{R}</div></li>
+    <li><p class="st">代入數字</p><div class="tex">I = \frac{9\ \text{V}}{450\ \Omega} = 0.02\ \text{A}</div></li>
+    <li><p class="st">換成題目要的單位</p><p class="work">0.02 A = <span class="result">20 mA</span></p></li>
+    <li><p class="st">檢查答案合不合理</p><p>反過來乘：0.02 A × 450 Ω = 9 V，吻合。</p></li>
+   </ol>
+  </section>
+
+  <aside class="note warn">
+   <p class="label">留意</p>
+   <p>這裡寫初學者最容易犯的一個錯，例如代公式前忘了把 mA 換成 A。</p>
+  </aside>
+
+  <p class="eyebrow lab" style="margin-top:36pt">動手做　約 2 分鐘</p>
+  <h3 style="margin-top:0">用 Python 驗算</h3>
+  <pre class="code"><span class="p">$</span> python3 -c <span class="s">"print(9 / 450 * 1000, 'mA')"</span>
+<span class="hl">20.0 mA</span></pre>
+  <p>每一步都寫出讀者應該看到什麼；沒有實際執行過的輸出要註明是示意。</p>
+
+  <aside class="note life">
+   <p class="label">生活中</p>
+   <p>說出這個概念用在哪個真實產品或場景，並帶上數字。</p>
+  </aside>
+ </div>
+ <div class="pn">3</div>
+</section>
+
+<!-- ===== 練習頁：每頁最多三題 ===== -->
+<section class="page">
+ <div class="rh"><span>N.M　小節標題</span><span>練習 1–3</span></div>
+ <div class="body">
+  <p class="eyebrow">練習</p>
+  <h2 class="tight">換你試試</h2>
+  <p class="dim">先自己寫，寫完再翻到下一頁對答案。</p>
+
+  <section class="practice">
+   <p class="tag">練習 1<span class="lv">基本</span></p>
+   <p class="q">5 V 的電源接上 250 Ω 的電阻，電流是多少 mA？</p>
+   <div class="write s"><div class="ans">答<i></i></div></div>
+  </section>
+  <section class="practice">
+   <p class="tag">練習 2<span class="lv">觀念</span></p>
+   <p class="q">電壓不變，把電阻換成原本的兩倍，電流會怎麼變？用一句話說明理由。</p>
+   <div class="write m"></div>
+  </section>
+  <section class="practice">
+   <p class="tag">練習 3<span class="lv">變化</span></p>
+   <p class="q">3 mA 的電流流過 2 kΩ 的電阻，電阻兩端的電壓是多少 V？</p>
+   <div class="write s"><div class="ans">答<i></i></div></div>
+  </section>
+ </div>
+ <div class="pn">4</div>
+</section>
+
+<!-- ===== 解答頁：緊接在練習的下一頁 ===== -->
+<section class="page">
+ <div class="rh"><span>N.M　小節標題</span><span>解答 1–3</span></div>
+ <div class="body">
+  <p class="eyebrow quiet">解答</p>
+  <h2>練習 1–3</h2>
+
+  <section class="answer">
+   <p class="tag">練習 1</p>
+   <p class="final">20 mA</p>
+   <div class="tex">I = \frac{V}{R} = \frac{5\ \text{V}}{250\ \Omega} = 0.02\ \text{A} = 20\ \text{mA}</div>
+  </section>
+  <section class="answer">
+   <p class="tag">練習 2</p>
+   <p class="final">電流變成原本的一半</p>
+   <p>電壓固定時，電流與電阻成反比，就是圖 1 從第一列到第二列的變化。</p>
+  </section>
+  <section class="answer">
+   <p class="tag">練習 3</p>
+   <p class="final">6 V</p>
+   <p>先把單位換成 A 與 Ω：3 mA = 0.003 A，2 kΩ = 2000 Ω。</p>
+   <div class="tex">V = I R = 0.003\ \text{A} \times 2000\ \Omega = 6\ \text{V}</div>
+  </section>
+
+  <div class="back">
+   <h3>寫錯了？回頭看這裡</h3>
+   <table>
+    <tr><td style="width:9em">練習 1、3</td><td>多半是單位沒換。重看第 3 頁的例題 1。</td></tr>
+    <tr><td>練習 2</td><td>重看第 2 頁的圖 1。</td></tr>
+   </table>
+  </div>
+ </div>
+ <div class="pn">5</div>
+</section>
+
+<!-- ===== 複習頁：重點、公式一覽、自我檢查、術語對照、下一節 ===== -->
+<section class="page">
+ <div class="rh"><span>N.M　小節標題</span><span>本節重點</span></div>
+ <div class="body">
+  <p class="eyebrow">複習</p>
+  <h2>本節重點</h2>
+  <ol class="keypoints">
+   <li>每個段落濃縮成一句話，<b>術語</b>用粗體。最多五點。</li>
+   <li>電壓固定時，<b>電流</b>與<b>電阻</b>成反比。</li>
+  </ol>
+
+  <h3>公式一覽</h3>
+  <div class="fsheet">
+   <div class="row"><span class="lbl">歐姆定律</span><div class="eq"><span class="v green">電壓</span><span class="op">=</span><span class="v blue">電流</span><span class="op">×</span><span class="v orange">電阻</span></div></div>
+   <div class="row"><span class="lbl">求電流</span><div class="tex">\cB{I} = \frac{\cG{V}}{\cO{R}}</div></div>
+  </div>
+
+  <h3>自我檢查</h3>
+  <ul class="check">
+   <li>我能不看講義，說出電壓、電流、電阻各是什麼</li>
+   <li>我能不看例題，獨立解出練習 3</li>
+  </ul>
+
+  <h3>術語對照</h3>
+  <table style="margin-top:10pt">
+   <tr><th style="width:26%">中文</th><th style="width:34%">English</th><th>一句話</th></tr>
+   <tr><td><b>電壓</b></td><td>voltage</td><td>推動電荷的力道</td></tr>
+   <tr><td><b>電流</b></td><td>current</td><td>每秒流過多少電荷</td></tr>
+   <tr><td><b>電阻</b></td><td>resistance</td><td>阻擋電流的程度</td></tr>
+  </table>
+
+  <aside class="note next">
+   <p class="label">下一節　N.M+1 標題</p>
+   <p>用一個問題預告下一節要解決什麼。</p>
+  </aside>
+ </div>
+ <div class="pn">6</div>
+</section>
+
+</body>
+</html>

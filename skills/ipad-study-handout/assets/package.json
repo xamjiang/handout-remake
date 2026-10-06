@@ -1,0 +1,11 @@
+{
+  "name": "ipad-study-handout-workspace",
+  "private": true,
+  "description": "講義工作資料夾的相依套件。Playwright 不列在這裡，由 build.mjs 自行尋找。",
+  "dependencies": {
+    "@fontsource/inter": "5.3.0",
+    "@fontsource/jetbrains-mono": "5.3.0",
+    "@fontsource/noto-sans-tc": "5.3.0",
+    "katex": "0.19.0"
+  }
+}

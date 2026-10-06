@@ -1,0 +1,254 @@
+/* FILE: handout.css ｜ iPad 11 吋直向深色講義。單位一律 pt：頁寬 = 螢幕點數。 */
+@import url("node_modules/@fontsource/inter/400.css");
+@import url("node_modules/@fontsource/inter/600.css");
+@import url("node_modules/@fontsource/noto-sans-tc/400.css");
+@import url("node_modules/@fontsource/noto-sans-tc/600.css");
+@import url("node_modules/@fontsource/jetbrains-mono/400.css");
+@import url("node_modules/@fontsource/jetbrains-mono/600.css");
+
+:root {
+  color-scheme: dark;
+  --sans: "Inter", "Noto Sans TC", "PingFang TC", sans-serif;
+  --mono: "JetBrains Mono", "Noto Sans TC", ui-monospace, Menlo, monospace;
+
+  --page-w: 834pt; --page-h: 1194pt;
+  --mx: 76pt; --mt: 72pt; --mb: 64pt;       /* 版心 682 × 1058pt */
+
+  --fs: 18pt; --fs-display: 46pt; --fs-h2: 29pt; --fs-h3: 21pt;
+  --fs-lead: 21pt; --fs-small: 14pt; --fs-micro: 12.5pt;
+  --lh: 1.8; --ls: 0.02em;
+
+  --sp-1: calc(var(--fs) * 0.5); --sp-2: calc(var(--fs) * 1);
+  --sp-3: calc(var(--fs) * 1.5); --sp-4: calc(var(--fs) * 2.25);
+
+  /* 文字與介面 */
+  --bg: #1c1c1e; --bg-subtle: #29292c;
+  --text: #e8e8ed; --text-strong: #f5f5f7; --text-2: #a1a1a6; --text-3: #8e8e93;
+  --line: #333336; --line-strong: #48484a;
+  --accent: #2997ff; --mark: #4d4200;
+
+  /* 圖解色盤：tint 淡底／本體鮮色／ink 亮色文字與線 */
+  --blue-tint: #11305a;   --blue: #0a84ff;   --blue-ink: #6cb6ff;
+  --orange-tint: #4a3110; --orange: #ff9f0a; --orange-ink: #ffb84d;
+  --green-tint: #133a21;  --green: #30d158;  --green-ink: #5ee08a;
+  --pink-tint: #4d1727;   --pink: #ff5c82;   --pink-ink: #ff8fa8;
+  --purple-tint: #38214f; --purple: #bf5af2; --purple-ink: #d9a2ff;
+  --teal-tint: #0f3b44;   --teal: #40c8e0;   --teal-ink: #70dcef;
+  --yellow-tint: #453a00; --yellow: #ffd60a; --yellow-ink: #ffe066;
+  --gray-fill: #636366;   --gray-soft: #414144;
+  --axis: #8e8e93;
+
+  --warn: #ff9f5a; --write-bg: #222224; --dot: #4c4c50;
+  --code-bg: #111113;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: var(--fs); }
+body {
+  font-family: var(--sans); font-weight: 400; color: var(--text); background: var(--bg);
+  line-height: var(--lh); letter-spacing: var(--ls);
+  font-synthesis: none; font-kerning: normal; font-variant-numeric: tabular-nums;
+  text-autospace: normal; text-spacing-trim: normal; overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased; -webkit-print-color-adjust: exact; print-color-adjust: exact;
+}
+@page { size: 834pt 1194pt; margin: 0; }
+
+/* ---------- 頁面 ---------- */
+.page { width: var(--page-w); height: var(--page-h); padding: var(--mt) var(--mx) var(--mb);
+        position: relative; overflow: hidden; break-after: page; background: var(--bg); }
+.page > .body { height: 100%; }
+.rh { position: absolute; top: 30pt; left: var(--mx); right: var(--mx); display: flex; justify-content: space-between;
+      font-size: var(--fs-micro); line-height: 1.4; color: var(--text-3); letter-spacing: 0.04em; }
+.pn { position: absolute; bottom: 28pt; right: var(--mx); font-size: var(--fs-micro); line-height: 1.4; color: var(--text-3); }
+
+/* ---------- 文字 ---------- */
+p { margin-bottom: var(--sp-2); }
+p:last-child { margin-bottom: 0; }
+b, strong { font-weight: 600; color: var(--text-strong); }
+.en { color: var(--text-2); font-size: 0.92em; letter-spacing: 0; }
+.dim { color: var(--text-2); }
+mark { background: var(--mark); color: inherit; padding: 0.08em 0.2em; border-radius: 3pt;
+       -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+code, .mono { font-family: var(--mono); letter-spacing: 0; font-size: 0.88em; font-variant-ligatures: none; }
+p code, li code, td code { background: var(--bg-subtle); padding: 0.15em 0.4em; border-radius: 5pt; }
+.note code { background: color-mix(in srgb, var(--text) 9%, transparent); }
+sup { font-size: 0.66em; line-height: 0; position: relative; top: -0.55em; vertical-align: baseline; letter-spacing: 0; }
+sub { font-size: 0.66em; line-height: 0; position: relative; top: 0.3em; vertical-align: baseline; letter-spacing: 0; }
+
+.eyebrow { font-size: var(--fs-micro); font-weight: 600; line-height: 1.4; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 6pt; }
+.eyebrow .src { color: var(--text-3); font-weight: 400; }
+.eyebrow.quiet { color: var(--text-2); }
+.eyebrow.lab { color: var(--purple-ink); }
+h1, h2, h3 { font-weight: 600; letter-spacing: 0; text-wrap: balance; color: var(--text-strong); }
+h2 { font-size: var(--fs-h2); line-height: 1.3; margin-bottom: var(--sp-3); }
+h2.tight { margin-bottom: 6pt; }
+h2.hang { text-indent: -0.5em; }
+h3 { font-size: var(--fs-h3); line-height: 1.4; margin-top: var(--sp-4); margin-bottom: var(--sp-1); }
+h3:first-child { margin-top: 0; }
+.lead { font-size: var(--fs-lead); line-height: 1.65; color: var(--text-2); }
+ul.plain, ol.plain { margin: 0 0 var(--sp-2) 1.4em; }
+ul.plain li, ol.plain li { margin-bottom: 6pt; padding-left: 0.2em; }
+ul.plain li::marker { color: var(--text-3); }
+ol.plain li::marker { font-weight: 600; }
+
+/* ---------- 術語定義：成對概念並排 ---------- */
+.terms { display: grid; grid-template-columns: 1fr 1fr; gap: 0 28pt; margin: var(--sp-3) 0; }
+.terms.one { grid-template-columns: 1fr; }
+.terms > div { border-top: 1.5pt solid var(--text); padding-top: 11pt; }
+.terms dt { font-weight: 600; font-size: 19pt; line-height: 1.4; color: var(--text-strong); }
+.terms dt .en { display: block; font-weight: 400; font-size: var(--fs-small); margin-top: 1pt; }
+.terms dd { margin-top: 7pt; font-size: 16pt; line-height: 1.7; }
+.terms .unit { display: block; margin-top: 6pt; font-size: var(--fs-small); color: var(--text-2); }
+
+/* ---------- 圖解 ---------- */
+figure { margin: var(--sp-3) 0; }
+figure .panel { background: var(--bg-subtle); border-radius: 18pt; padding: 26pt 28pt; }
+figure svg { display: block; width: 100%; height: auto; overflow: visible; }
+figcaption { margin-top: 9pt; font-size: var(--fs-small); line-height: 1.6; color: var(--text-2); }
+figcaption b { color: var(--text); margin-right: 0.5em; }
+svg text { font-family: var(--sans); letter-spacing: 0.01em; }
+
+/* ---------- 公式 ---------- */
+.formula { margin: var(--sp-3) 0; padding: 20pt 24pt 18pt; border: 1pt solid var(--line-strong); border-radius: 16pt; text-align: center; }
+.formula .eq, .fsheet .eq { font-weight: 600; letter-spacing: 0; line-height: 1.5; display: flex; align-items: center; gap: 0.45em; flex-wrap: wrap; }
+.formula .eq { font-size: 21pt; justify-content: center; }
+.formula .eq + .eq, .formula .eq + .tex, .formula .tex + .eq { margin-top: 14pt; }
+.formula .tex { font-size: 20pt; }
+.formula .eq-en { margin-top: 10pt; font-size: var(--fs-small); line-height: 1.5; color: var(--text-2); letter-spacing: 0; }
+.formula .why { font-size: var(--fs-small); color: var(--text-2); font-weight: 400; margin: 14pt 0; }
+.op { font-weight: 400; color: var(--text-2); }
+.v { display: inline-block; padding: 0.12em 0.5em; border-radius: 7pt; font-weight: 600; white-space: nowrap; }
+.v sub { font-weight: 600; }
+.v.blue   { background: var(--blue-tint);   color: var(--blue-ink); }
+.v.orange { background: var(--orange-tint); color: var(--orange-ink); }
+.v.green  { background: var(--green-tint);  color: var(--green-ink); }
+.v.pink   { background: var(--pink-tint);   color: var(--pink-ink); }
+.v.purple { background: var(--purple-tint); color: var(--purple-ink); }
+.v.teal   { background: var(--teal-tint);   color: var(--teal-ink); }
+.v.yellow { background: var(--yellow-tint); color: var(--yellow-ink); }
+.v.plain  { background: var(--bg-subtle);   color: var(--text); }
+.var { font-weight: 600; padding: 0 0.1em; }
+.frac { display: inline-flex; flex-direction: column; align-items: center; vertical-align: middle; }
+.frac > span { padding: 0 0.2em; line-height: 1.5; }
+.frac > span:first-child { padding-bottom: 5pt; }
+.frac > span:last-child { border-top: 1.5pt solid var(--text); padding-top: 5pt; }
+.calc { letter-spacing: 0; white-space: nowrap; }
+.calc .frac { font-size: 0.9em; margin: 0 0.15em; }
+.calc .frac > span { line-height: 1.35; padding: 0 0.3em; }
+.calc .frac > span:first-child { padding-bottom: 2pt; }
+.calc .frac > span:last-child { padding-top: 2pt; border-top-width: 1.2pt; }
+/* KaTeX */
+.tex { letter-spacing: 0; }
+.katex { font-size: 1.1em; }
+.katex .cjk_fallback { font-family: var(--sans); font-size: 0.9em; }
+.katex-display { margin: 0; }
+div.tex { margin: var(--sp-2) 0; }
+.formula div.tex, .fsheet div.tex { margin: 0; }
+.steps div.tex, .answer div.tex { text-align: left; margin: 6pt 0; }
+.steps .katex-display, .answer .katex-display, .fsheet .katex-display { text-align: left; }
+.steps .katex-display > .katex, .answer .katex-display > .katex, .fsheet .katex-display > .katex { text-align: left; }
+
+/* ---------- 區塊標籤 ---------- */
+.tag { font-size: var(--fs-small); font-weight: 600; line-height: 1.4; letter-spacing: 0.06em; margin-bottom: 4pt; }
+.tag .lv { font-weight: 400; color: var(--text-3); margin-left: 0.6em; letter-spacing: 0.02em; }
+
+/* ---------- 例題 ---------- */
+.example { margin: var(--sp-3) 0; border-left: 2pt solid var(--accent); padding-left: 20pt; }
+.example:first-child { margin-top: 0; }
+.example .tag { color: var(--accent); }
+.example .q { font-weight: 600; line-height: 1.7; margin-bottom: var(--sp-2); color: var(--text-strong); }
+.given { display: grid; grid-template-columns: auto 1fr; gap: 6pt 16pt; margin-bottom: var(--sp-2); font-size: 16pt; line-height: 1.7; }
+.given dt { color: var(--text-2); font-size: var(--fs-small); font-weight: 600; letter-spacing: 0.06em; padding-top: 2.5pt; }
+.steps { list-style: none; counter-reset: s; }
+.steps > li { counter-increment: s; position: relative; padding-left: 34pt; padding-bottom: 13pt; }
+.steps > li:last-child { padding-bottom: 0; }
+.steps > li::before { content: counter(s); position: absolute; left: 0; top: 4pt; width: 22pt; height: 22pt; border-radius: 50%;
+  background: var(--text); color: var(--bg); font-size: 12.5pt; font-weight: 600; line-height: 22pt; text-align: center; letter-spacing: 0; }
+.steps > li::after { content: ""; position: absolute; left: 10.5pt; top: 30pt; bottom: 0; width: 1pt; background: var(--line-strong); }
+.steps > li:last-child::after { display: none; }
+.steps .st { font-weight: 600; margin-bottom: 1pt; color: var(--text-strong); }
+.steps p { margin-bottom: 2pt; }
+.steps .work { font-size: 17pt; letter-spacing: 0; }
+.result { font-weight: 600; color: var(--text-strong); }
+
+/* ---------- 練習＋書寫區 ---------- */
+.practice { margin-top: var(--sp-3); }
+.practice .q { line-height: 1.7; margin-bottom: 10pt; }
+.practice .q ol { margin: 4pt 0 0 1.4em; }
+.write { position: relative; border: 1pt solid var(--line-strong); border-radius: 14pt; background: var(--write-bg); overflow: hidden; }
+.write.s { height: 164pt; } .write.m { height: 200pt; } .write.l { height: 260pt; }
+.write svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.write .ans { position: absolute; right: 18pt; bottom: 13pt; display: flex; align-items: flex-end; gap: 8pt;
+  font-size: var(--fs-small); color: var(--text-3); line-height: 1; background: var(--write-bg); padding: 6pt 6pt 4pt 10pt; border-radius: 6pt; }
+.write .ans i { display: block; width: 150pt; border-bottom: 1pt solid var(--line-strong); }
+
+/* ---------- 提示框：只有三種，沒有側邊色條 ---------- */
+.note { --c: var(--green-ink); margin: var(--sp-3) 0; padding: 15pt 20pt 16pt; border-radius: 14pt;
+        background: color-mix(in srgb, var(--c) 13%, var(--bg)); font-size: 16pt; line-height: 1.75; }
+.note .label { font-size: var(--fs-small); font-weight: 600; letter-spacing: 0.06em; color: var(--c); margin-bottom: 3pt; line-height: 1.5; }
+.note.life { --c: var(--green-ink); }
+.note.warn { --c: var(--warn); }
+.note.lab  { --c: var(--purple-ink); }
+.note.next { --c: var(--accent); }
+
+/* ---------- 表格 ---------- */
+table { border-collapse: collapse; width: 100%; font-size: 16pt; line-height: 1.6; margin: var(--sp-3) 0; }
+th { text-align: left; font-weight: 600; font-size: var(--fs-small); color: var(--text-2); letter-spacing: 0.04em;
+     padding: 0 14pt 8pt 0; border-bottom: 1.5pt solid var(--text); white-space: nowrap; }
+td { padding: 10pt 14pt 10pt 0; border-bottom: 1pt solid var(--line); vertical-align: top; }
+td:last-child, th:last-child { padding-right: 0; }
+td .en { display: block; font-size: 13pt; }
+
+/* ---------- 程式碼與終端機 ---------- */
+pre.code { background: var(--code-bg); color: var(--text); border: 1pt solid var(--line); border-radius: 14pt; padding: 16pt 20pt;
+           font-family: var(--mono); font-size: 13pt; line-height: 1.8; letter-spacing: 0; margin: 10pt 0 12pt; white-space: pre-wrap;
+           font-variant-ligatures: none; }
+pre.code .p, pre.code .c { color: var(--text-3); }          /* 提示字元、註解 */
+pre.code .o { color: var(--text-2); }                         /* 輸出 */
+pre.code .k { color: var(--pink-ink); }                       /* 關鍵字 */
+pre.code .s { color: var(--orange-ink); }                     /* 字串 */
+pre.code .n { color: var(--teal-ink); }                       /* 數字 */
+pre.code .hl { color: var(--blue-ink); font-weight: 600; }    /* 要讀者注意的地方 */
+pre.code .hw { color: var(--text-strong); font-weight: 600; }
+
+/* ---------- 節首頁 ---------- */
+.opener { padding-top: 96pt; }
+.opener .course { font-size: var(--fs-small); color: var(--text-2); letter-spacing: 0.06em; line-height: 1.5; }
+.opener .secno { font-size: 21pt; font-weight: 600; color: var(--accent); letter-spacing: 0; margin-top: 150pt; line-height: 1.3; }
+.opener h1 { font-size: var(--fs-display); line-height: 1.22; margin-top: 4pt; }
+.opener .lead { margin-top: 18pt; max-width: 30em; }
+.opener .glyph { position: absolute; right: 60pt; top: 78pt; width: 220pt; height: 220pt; }
+.goals { margin-top: 44pt; border-top: 1pt solid var(--line-strong); padding-top: 22pt; }
+.goals h3 { margin: 0 0 12pt; font-size: var(--fs-small); color: var(--text-2); letter-spacing: 0.06em; }
+.goals ol { list-style: none; counter-reset: g; }
+.goals li { counter-increment: g; position: relative; padding-left: 36pt; margin-bottom: 9pt; line-height: 1.65; }
+.goals li::before { content: counter(g); position: absolute; left: 0; top: 3pt; width: 23pt; height: 23pt; border-radius: 50%;
+  border: 1.5pt solid var(--text); font-size: 12.5pt; font-weight: 600; line-height: 20pt; text-align: center; letter-spacing: 0; }
+.meta { position: absolute; left: var(--mx); right: var(--mx); bottom: 64pt; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20pt;
+        border-top: 1pt solid var(--line-strong); padding-top: 14pt; }
+.meta div { font-size: 15pt; line-height: 1.5; }
+.meta span { display: block; font-size: var(--fs-micro); color: var(--text-3); letter-spacing: 0.06em; margin-bottom: 2pt; }
+
+/* ---------- 解答頁 ---------- */
+.answer { margin-top: var(--sp-3); padding-top: var(--sp-2); border-top: 1pt solid var(--line-strong); }
+.answer:first-of-type { border-top: 0; padding-top: 0; }
+.answer .tag { color: var(--text-2); }
+.answer .final { display: inline-block; background: var(--mark); padding: 0.1em 0.5em; border-radius: 6pt; font-weight: 600; margin-bottom: 8pt; color: var(--text-strong); }
+.answer p { margin-bottom: 6pt; }
+.back { margin-top: var(--sp-4); font-size: 16pt; }
+.back h3 { margin-top: 0; font-size: var(--fs-small); color: var(--text-2); letter-spacing: 0.06em; }
+.back table { margin: 8pt 0 0; }
+
+/* ---------- 複習頁 ---------- */
+.keypoints { list-style: none; counter-reset: k; margin-bottom: var(--sp-3); }
+.keypoints li { counter-increment: k; position: relative; padding: 11pt 0 11pt 40pt; border-bottom: 1pt solid var(--line); line-height: 1.65; }
+.keypoints li:first-child { border-top: 1.5pt solid var(--text); }
+.keypoints li::before { content: counter(k); position: absolute; left: 2pt; top: 11pt; font-weight: 600; color: var(--accent); }
+.fsheet { border: 1pt solid var(--line-strong); border-radius: 16pt; padding: 4pt 24pt; margin-top: 10pt; }
+.fsheet .row { display: grid; grid-template-columns: 6.6em 1fr; align-items: center; padding: 13pt 0; border-bottom: 1pt solid var(--line); }
+.fsheet .row:last-child { border-bottom: 0; }
+.fsheet .lbl { font-size: var(--fs-small); line-height: 1.5; color: var(--text-2); font-weight: 600; letter-spacing: 0.04em; }
+.fsheet .eq, .fsheet .tex { font-size: 18pt; }
+.check { list-style: none; }
+.check li { position: relative; padding-left: 34pt; margin-bottom: 8pt; line-height: 1.65; font-size: 16pt; }
+.check li::before { content: ""; position: absolute; left: 0; top: 4pt; width: 20pt; height: 20pt; border: 1.5pt solid var(--text-3); border-radius: 6pt; }
