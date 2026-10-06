@@ -1,5 +1,5 @@
 {
-  "name": "ipad-study-handout-workspace",
+  "name": "handout-remake-workspace",
   "private": true,
   "description": "講義工作資料夾的相依套件。Playwright 不列在這裡，由 build.mjs 自行尋找。",
   "dependencies": {

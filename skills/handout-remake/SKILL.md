@@ -1,5 +1,5 @@
 ---
-name: "ipad-study-handout"
+name: "handout-remake"
 description: "把上課教材（PPT、PDF、筆記）重製成 iPad 上好讀、可手寫的深色 PDF 講義：從零講起、圖解、例題、練習與書寫區。使用者丟課程講義並要求做講義、教材、好讀版，或說「幫我整理這章」時使用，適用各種工程學科。"
 ---
 

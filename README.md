@@ -51,10 +51,10 @@
 
 ### Claude Cowork 與 Claude.ai
 
-1. 到 [Releases](../../releases) 頁面下載最新的 `ipad-study-handout.zip`。
+1. 到 [Releases](../../releases) 頁面下載最新的 `handout-remake.zip`。
 2. 開啟 Claude 的**設定**，在 **Capabilities** 裡確認**程式碼執行**（Code execution）已開啟。
 3. 在 **Skills** 區塊選擇 **Upload skill**，上傳剛剛下載的 zip 檔。
-4. 確認清單中出現 `ipad-study-handout`，並且是開啟狀態。
+4. 確認清單中出現 `handout-remake`，並且是開啟狀態。
 
 > [!NOTE]
 > 需要 Pro、Max、Team 或 Enterprise 方案。設定頁面的名稱可能隨 Claude 更新而調整。
@@ -62,9 +62,9 @@
 如果 Releases 還沒有檔案，也可以自己打包：
 
 ```bash
-git clone https://github.com/xamjiang/ipad-study-handout.git
-cd ipad-study-handout/skills
-zip -r ../ipad-study-handout.zip ipad-study-handout
+git clone https://github.com/xamjiang/handout-remake.git
+cd handout-remake/skills
+zip -r ../handout-remake.zip handout-remake
 ```
 
 ### Claude Code
@@ -72,8 +72,8 @@ zip -r ../ipad-study-handout.zip ipad-study-handout
 把 skill 資料夾複製到個人的 skills 目錄：
 
 ```bash
-git clone https://github.com/xamjiang/ipad-study-handout.git
-cp -R ipad-study-handout/skills/ipad-study-handout ~/.claude/skills/
+git clone https://github.com/xamjiang/handout-remake.git
+cp -R handout-remake/skills/handout-remake ~/.claude/skills/
 ```
 
 ### Codex
@@ -81,8 +81,8 @@ cp -R ipad-study-handout/skills/ipad-study-handout ~/.claude/skills/
 複製到 Codex 的 skills 目錄：
 
 ```bash
-git clone https://github.com/xamjiang/ipad-study-handout.git
-cp -R ipad-study-handout/skills/ipad-study-handout ~/.codex/skills/
+git clone https://github.com/xamjiang/handout-remake.git
+cp -R handout-remake/skills/handout-remake ~/.codex/skills/
 ```
 
 只想在某個專案裡使用的話，改為複製到該專案的 `.agents/skills/`。
@@ -324,7 +324,7 @@ npx playwright install chromium
 ├── README.md
 ├── LICENSE
 ├── docs/images/                  README 使用的圖片
-└── skills/ipad-study-handout/    skill 本體
+└── skills/handout-remake/        skill 本體
     ├── SKILL.md                  流程與規則
     ├── assets/
     │   ├── handout.css           樣式與色盤
