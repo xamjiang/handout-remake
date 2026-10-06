@@ -30,7 +30,7 @@
 
 ## 支援平台
 
-這個 skill 使用 [Agent Skills](https://agentskills.io) 開放格式，理論上支援所有能讀取 `SKILL.md` 的 AI 工具。製作過程需要執行 Node.js 與無頭瀏覽器，所以平台必須能執行程式碼。
+這個 skill 使用 [Agent Skills](https://agentskills.io) 開放格式，理論上支援所有能讀取 `SKILL.md` 的 AI 工具。製作過程需要執行 Node.js 與無頭瀏覽器，所以平台必須能執行程式碼，才能輸出 PDF。
 
 | 平台 | 狀態 | 說明 |
 |---|---|---|
@@ -38,7 +38,8 @@
 | Claude.ai | 🧪 待測試 | 需要開啟程式碼執行功能 |
 | Claude Code | 🧪 待測試 | 在你的電腦上執行，需要先安裝相依工具 |
 | Codex | 🧪 待測試 | 在你的電腦上執行，需要先安裝相依工具 |
-| ChatGPT | 🧪 待測試 | 沙箱可能無法安裝 npm 套件，可能無法完成 PDF 建置 |
+| Gemini Spark | ⚠️ 部分可用 | 講義內容可以產出；雲端電腦不能連網安裝套件，可能無法輸出 PDF |
+| ChatGPT | 🧪 待測試 | 沙箱可能無法安裝 npm 套件，可能無法輸出 PDF |
 
 > [!NOTE]
 > 如果你在「待測試」的平台上成功或失敗，歡迎開 [Issue](../../issues) 告訴我，我會更新這張表。
@@ -47,7 +48,12 @@
 
 ## 安裝 skill
 
-依你使用的平台選擇一種方式。
+依你使用的平台選擇一種方式。[Releases](../../releases) 頁面有兩種封包，請下載對應的那一個：
+
+| 檔案 | 適用平台 |
+|---|---|
+| `handout-remake.zip` | Claude Cowork、Claude.ai、ChatGPT |
+| `handout-remake-gemini.zip` | Google Gemini（含 Gemini Spark） |
 
 ### Claude Cowork 與 Claude.ai
 
@@ -57,15 +63,40 @@
 4. 確認清單中出現 `handout-remake`，並且是開啟狀態。
 
 > [!NOTE]
-> 需要 Pro、Max、Team 或 Enterprise 方案。設定頁面的名稱可能隨 Claude 更新而調整。
+> Cowork 需要付費方案。設定頁面的名稱可能隨 Claude 更新而調整，以官方說明為準。
 
-如果 Releases 還沒有檔案，也可以自己打包：
+📖 官方說明：[Use Skills in Claude](https://support.claude.com/en/articles/12512180)、[Getting started with Cowork](https://support.claude.com/en/articles/13345190)
 
-```bash
-git clone https://github.com/xamjiang/handout-remake.git
-cd handout-remake/skills
-zip -r ../handout-remake.zip handout-remake
-```
+### Google Gemini 與 Gemini Spark
+
+Gemini 的 skill 統一在 Gemini 網頁版的設定裡管理，裝好之後，一般對話與 Gemini Spark 都能使用。
+
+**開始之前**，請確認你符合 Gemini Spark 的使用條件：
+
+- 訂閱 **Google AI Pro 或 Ultra**。
+- 用**個人 Google 帳號**登入。學校發的帳號（例如 `@xxx.edu.tw`）目前無法使用。
+- 年滿 **18 歲**，並且開啟了「**保留活動記錄**」（Keep Activity）。
+
+**安裝 skill**
+
+1. 到 [Releases](../../releases) 頁面下載最新的 **`handout-remake-gemini.zip`**。
+2. 用電腦瀏覽器開啟 [gemini.google.com](https://gemini.google.com)（或 Mac 版 Gemini App），進入**設定 → 技能**（Skills）。
+3. 選擇上傳檔案，上傳剛剛下載的 zip 檔。
+4. 確認清單中出現 `handout-remake`，並且是啟用狀態。
+
+> [!IMPORTANT]
+> 請上傳 **`handout-remake-gemini.zip`**，不要用 Claude 版的 `handout-remake.zip`。Gemini 規定 `SKILL.md` 必須放在 zip 的最外層，也不接受 `.css`、`.html`、`.mjs` 這類副檔名，Claude 版的封包會上傳失敗。Gemini 版已經把這些檔案改成 `.txt`，AI 使用時會自動改回來。
+
+**在 Gemini Spark 中使用**
+
+1. 在 Gemini Spark 開一個新任務，上傳你的投影片或 PDF。
+2. 在輸入框輸入 `/`，從清單中選擇 `handout-remake`。
+3. 接著說明你要什麼，例如「幫我把第 2 章 p.37–46 做成講義」。
+
+> [!WARNING]
+> 根據 Google 的官方說明，skill 裡的腳本不能連上網路，所以 Gemini Spark 可能無法安裝建置 PDF 所需的套件。目前實測的結果是**講義內容可以產出**，但不一定能得到排好版的 PDF。這時可以請 Gemini 把排好的 HTML 檔交給你，再參考〈[在自己的電腦上建置 PDF](#在自己的電腦上建置-pdf)〉轉成 PDF。
+
+📖 官方說明：[建立及管理技能](https://support.google.com/gemini/answer/17094296)、[使用 Gemini Spark](https://support.google.com/gemini/answer/17094507)
 
 ### Claude Code
 
@@ -75,6 +106,10 @@ zip -r ../handout-remake.zip handout-remake
 git clone https://github.com/xamjiang/handout-remake.git
 cp -R handout-remake/skills/handout-remake ~/.claude/skills/
 ```
+
+只想在某個專案裡使用的話，改為複製到該專案的 `.claude/skills/`。
+
+📖 官方說明：[Skills – Claude Code Docs](https://code.claude.com/docs/en/skills)
 
 ### Codex
 
@@ -86,6 +121,14 @@ cp -R handout-remake/skills/handout-remake ~/.codex/skills/
 ```
 
 只想在某個專案裡使用的話，改為複製到該專案的 `.agents/skills/`。
+
+📖 官方說明：[Agent Skills – Codex](https://developers.openai.com/codex/skills)
+
+### ChatGPT
+
+ChatGPT 的 skill 在側邊欄的 **Plugins → Skills** 分頁管理。這個平台還沒實測，可以先試著上傳 `handout-remake.zip`，詳細的安裝方式請以官方說明為準。
+
+📖 官方說明：[Skills in ChatGPT](https://help.openai.com/en/articles/20001066-skills-in-chatgpt)
 
 ### 在自己的電腦上執行時：安裝相依工具
 
@@ -108,6 +151,25 @@ npx playwright install chromium          # 下載 Playwright 使用的瀏覽器
 
 > [!TIP]
 > 不想安裝 LibreOffice 的話，可以先在 PowerPoint 或 Keynote 裡把投影片匯出成 PDF，再交給 AI。
+
+### 在自己的電腦上建置 PDF
+
+如果平台只能給你 HTML 檔（例如 Gemini Spark），可以在自己的電腦上轉成 PDF。需要先安裝 [Node.js](https://nodejs.org) 18 以上。
+
+```bash
+git clone https://github.com/xamjiang/handout-remake.git
+mkdir handout && cd handout
+cp ../handout-remake/skills/handout-remake/assets/* ../handout-remake/skills/handout-remake/scripts/build.mjs .
+npm install && npm i playwright && npx playwright install chromium
+```
+
+把 AI 給你的 HTML 檔放進 `handout` 資料夾，然後執行：
+
+```bash
+node build.mjs 講義.html 講義.pdf
+```
+
+畫面上會列出每一頁的剩餘空間。如果出現「溢出」，代表那一頁內容太多，請 AI 重新分頁後再建置一次。
 
 ---
 
@@ -269,7 +331,7 @@ AI 會依序完成這些事，過程中不需要你介入：
 | iPad 尺寸 | `assets/handout.css` 的 `--page-w`、`--page-h`、`@page`，以及 `scripts/build.mjs` 的 viewport |
 
 > [!NOTE]
-> 修改後，Cowork 與 Claude.ai 需要重新打包成 zip 並再上傳一次。
+> 修改後，Cowork、Claude.ai 與 Gemini 需要重新打包再上傳一次。在 repo 根目錄執行 `tools/package.sh`，就會在 `dist/` 產生兩種封包（只會打包已 commit 的內容）。
 
 ---
 
@@ -324,6 +386,7 @@ npx playwright install chromium
 ├── README.md
 ├── LICENSE
 ├── docs/images/                  README 使用的圖片
+├── tools/package.sh              打包 Claude 版與 Gemini 版的 zip
 └── skills/handout-remake/        skill 本體
     ├── SKILL.md                  流程與規則
     ├── assets/
