@@ -12,3 +12,6 @@ handout/
 # 系統檔
 .DS_Store
 Thumbs.db
+
+# 打包輸出
+dist/
