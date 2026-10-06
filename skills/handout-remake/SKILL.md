@@ -84,7 +84,7 @@ description: "把上課教材（PPT、PDF、筆記）重製成 iPad 上好讀、
 | `assets/package.json` | 字型與 KaTeX 的固定版本 |
 | `scripts/build.mjs` | 渲染 KaTeX、鋪書寫區點陣、檢查每頁溢出、輸出向量 PDF |
 
-這些檔案直接複製使用，不要改寫或重打；需要調整樣式時改 `handout.css` 的變數。
+這些檔案直接複製使用，不要改寫或重打；需要調整樣式時改 `handout.css` 的變數。有些平台只接受特定副檔名，封包裡的檔案可能多了 `.txt`（例如 `handout.css.txt`），複製到工作資料夾時去掉 `.txt` 即可。
 
 ## 環境準備
 
