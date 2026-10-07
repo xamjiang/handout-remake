@@ -32,15 +32,15 @@
 
 這個 skill 使用 [Agent Skills](https://agentskills.io) 開放格式，理論上支援所有能讀取 `SKILL.md` 的 AI 工具。製作過程需要執行 Node.js 與無頭瀏覽器，所以平台必須能執行程式碼，才能輸出 PDF。
 
-| 平台          | 狀態                                   | 說明                                                                            |
-| ------------- | -------------------------------------- | ------------------------------------------------------------------------------- |
-| Claude Cowork | ✅ 已實測（Cowork 功能已與 Chat 合併） | 範例截圖都是用 Cowork 製作的，實測 Opus 5.5 mediu、Sonnet 5.5 high 效果都很好。 |
-| Claude.ai     | ✅ 已實測                              | 需要開啟程式碼執行功能                                                          |
-| Claude Code   | 🧪 待測試                              | 在你的電腦上執行，需要先安裝相依工具                                            |
-| Codex         | 🧪 待測試                              | 在你的電腦上執行，需要先安裝相依工具                                            |
-| Gemini Spark  | ⚠️ 部分可用                            | 內容可以正常產出，但受限於 Gemini 模型，效果堪用但不多。                        |
-| Gemini 聊天室 | ✋ 先不要 ❌                           | 內容無法正常產出，效果相當炸裂，可愛龍還是可愛龍。                              |
-| ChatGPT Work  | ✅ 已實測                              | 使用 GPT-6 Astra high 可做到 Opus 5.5 八成效果，會有圖表文字些微跑版的問題。    |
+| 平台 | 狀態 | 說明 |
+| --- | --- | --- |
+| <img src="docs/images/logos/claude.svg" width="16" alt=""> Claude Cowork | ✅ 已實測（Cowork 功能已與 Chat 合併） | 範例截圖都是用 Cowork 製作的，實測 Opus 5.5 mediu、Sonnet 5.5 high 效果都很好。 |
+| <img src="docs/images/logos/claude.svg" width="16" alt=""> Claude.ai | ✅ 已實測 | 需要開啟程式碼執行功能 |
+| <img src="docs/images/logos/claude-code.svg" width="16" alt=""> Claude Code | 🧪 待測試 | 在你的電腦上執行，需要先安裝相依工具 |
+| <img src="docs/images/logos/codex.svg" width="16" alt=""> Codex | 🧪 待測試 | 在你的電腦上執行，需要先安裝相依工具 |
+| <img src="docs/images/logos/gemini.svg" width="16" alt=""> Gemini Spark | ⚠️ 部分可用 | 內容可以正常產出，但受限於 Gemini 模型，效果堪用但不多。 |
+| <img src="docs/images/logos/gemini.svg" width="16" alt=""> Gemini 聊天室 | ✋ 先不要 ❌ | 內容無法正常產出，效果相當炸裂，可愛龍還是可愛龍。 |
+| <picture><source media="(prefers-color-scheme: dark)" srcset="docs/images/logos/openai-dark.svg"><img src="docs/images/logos/openai-light.svg" width="16" alt=""></picture> ChatGPT Work | ✅ 已實測 | 使用 GPT-6 Astra high 可做到 Opus 5.5 八成效果，會有圖表文字些微跑版的問題。 |
 
 > [!NOTE]
 > 如果在各個平台上成功或失敗，歡迎開 [Issue](../../issues) 告訴我。
@@ -49,14 +49,28 @@
 
 ## 安裝 skill
 
-依你使用的平台選擇一種方式。[Releases](../../releases) 頁面有兩種封包，請下載對應的那一個：
+**點選你使用的平台**，直接跳到對應的教學：
+
+<table>
+  <tr>
+    <td align="center" width="20%"><a href="#install-claude"><img src="docs/images/logos/claude.svg" width="40" alt=""><br><b>Claude</b></a><br>Cowork・Claude.ai</td>
+    <td align="center" width="20%"><a href="#install-gemini"><img src="docs/images/logos/gemini.svg" width="40" alt=""><br><b>Gemini</b></a><br>Gemini Spark</td>
+    <td align="center" width="20%"><a href="#install-chatgpt"><picture><source media="(prefers-color-scheme: dark)" srcset="docs/images/logos/openai-dark.svg"><img src="docs/images/logos/openai-light.svg" width="40" alt=""></picture><br><b>ChatGPT</b></a><br>ChatGPT Work</td>
+    <td align="center" width="20%"><a href="#install-claude-code"><img src="docs/images/logos/claude-code.svg" width="40" alt=""><br><b>Claude Code</b></a><br>終端機</td>
+    <td align="center" width="20%"><a href="#install-codex"><img src="docs/images/logos/codex.svg" width="40" alt=""><br><b>Codex</b></a><br>終端機</td>
+  </tr>
+</table>
+
+Claude、Gemini 與 ChatGPT 需要從 [Releases](../../releases) 頁面下載封包，請下載對應的那一個：
 
 | 檔案                        | 適用平台                          |
 | --------------------------- | --------------------------------- |
 | `handout-remake.zip`        | Claude Cowork、Claude.ai、ChatGPT |
 | `handout-remake-gemini.zip` | Google Gemini（含 Gemini Spark）  |
 
-### Claude Cowork 與 Claude.ai
+<a id="install-claude"></a>
+
+### <img src="docs/images/logos/claude.svg" width="24" alt=""> Claude Cowork 與 Claude.ai
 
 1. 到 [Releases](../../releases) 頁面下載最新的 `handout-remake.zip`。
 2. 開啟 Claude 的**設定**，在 **Capabilities** 裡確認**程式碼執行**（Code execution）已開啟。
@@ -68,7 +82,9 @@
 
 📖 官方說明：[Use Skills in Claude](https://support.claude.com/en/articles/12512180)、[Getting started with Cowork](https://support.claude.com/en/articles/13345190)
 
-### Google Gemini Spark
+<a id="install-gemini"></a>
+
+### <img src="docs/images/logos/gemini.svg" width="24" alt=""> Google Gemini Spark
 
 Gemini 的 skill 統一在 Gemini 網頁版的設定裡管理，裝好之後，一般對話與 Gemini Spark 都能使用。
 
@@ -99,7 +115,9 @@ Gemini 的 skill 統一在 Gemini 網頁版的設定裡管理，裝好之後，�
 
 📖 官方說明：[建立及管理技能](https://support.google.com/gemini/answer/17094296)、[使用 Gemini Spark](https://support.google.com/gemini/answer/17094507)
 
-### Claude Code
+<a id="install-claude-code"></a>
+
+### <img src="docs/images/logos/claude-code.svg" width="24" alt=""> Claude Code
 
 把 skill 資料夾複製到個人的 skills 目錄：
 
@@ -112,7 +130,9 @@ cp -R handout-remake/skills/handout-remake ~/.claude/skills/
 
 📖 官方說明：[Skills – Claude Code Docs](https://code.claude.com/docs/en/skills)
 
-### Codex
+<a id="install-codex"></a>
+
+### <img src="docs/images/logos/codex.svg" width="24" alt=""> Codex
 
 複製到 Codex 的 skills 目錄：
 
@@ -125,7 +145,9 @@ cp -R handout-remake/skills/handout-remake ~/.codex/skills/
 
 📖 官方說明：[Agent Skills – Codex](https://developers.openai.com/codex/skills)
 
-### ChatGPT
+<a id="install-chatgpt"></a>
+
+### <picture><source media="(prefers-color-scheme: dark)" srcset="docs/images/logos/openai-dark.svg"><img src="docs/images/logos/openai-light.svg" width="24" alt=""></picture> ChatGPT
 
 ChatGPT 的 skill 在側邊欄的 **Plugins → Skills** 分頁管理。這個平台還沒實測，可以先試著上傳 `handout-remake.zip`，詳細的安裝方式請以官方說明為準。
 
@@ -411,3 +433,5 @@ docs: 補充 Codex 的安裝步驟
 ## 授權
 
 本專案以 [MIT License](LICENSE) 授權。README 中的範例截圖取自作者自己的課程講義，僅供展示。
+
+平台 logo 取自 [Lobe Icons](https://github.com/lobehub/lobe-icons)（MIT License），商標權屬於各自的公司，在此僅用來標示相容的平台。
