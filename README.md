@@ -2,9 +2,9 @@
   <img src="docs/images/hero.webp" alt="四頁講義範例：節首頁、概念頁、例題頁、練習頁" width="100%">
 </p>
 
-# iPad 深色講義
+# 深色講義
 
-把上課的投影片、PDF 或筆記交給 AI，產出一份在 iPad 上好讀、可以直接用 Apple Pencil 作答的深色 PDF 講義。
+把上課的投影片、PDF 或筆記交給 AI，製作適合在平板裝置長時間閱讀、理解的教學講義。
 
 > **English** — An Agent Skill that turns lecture slides into dark-mode, pen-ready study handouts for the 11-inch iPad. It re-teaches each topic from scratch with diagrams, worked examples and practice pages, then builds a fully vector PDF. Output language: Traditional Chinese (Taiwan).
 
@@ -12,7 +12,7 @@
 
 ## 概覽
 
-老師的投影片是寫給「已經聽過課的人」看的：重點很密、步驟常常省略、公式和圖只存在圖片裡。這個 skill 讓 AI 先讀懂教材，再**依照初學者需要的順序重新教一次**，最後排成固定格式的講義。
+老師的投影片重點很密、步驟常常省略、公式和圖只存在圖片裡。這個 skill 讓 AI 先讀懂教材，再**依照初學者需要的順序重新教一次**，最後排成固定格式的講義。
 
 <p align="center">
   <img src="docs/images/workflow.webp" alt="流程：丟入教材 → AI 重新教一次 → 排版與自動檢查 → 在 iPad 上讀寫" width="100%">
@@ -32,17 +32,18 @@
 
 這個 skill 使用 [Agent Skills](https://agentskills.io) 開放格式，理論上支援所有能讀取 `SKILL.md` 的 AI 工具。製作過程需要執行 Node.js 與無頭瀏覽器，所以平台必須能執行程式碼，才能輸出 PDF。
 
-| 平台 | 狀態 | 說明 |
-|---|---|---|
-| Claude Cowork | ✅ 已實測 | 範例截圖都是用 Cowork 製作的 |
-| Claude.ai | 🧪 待測試 | 需要開啟程式碼執行功能 |
-| Claude Code | 🧪 待測試 | 在你的電腦上執行，需要先安裝相依工具 |
-| Codex | 🧪 待測試 | 在你的電腦上執行，需要先安裝相依工具 |
-| Gemini Spark | ⚠️ 部分可用 | 講義內容可以產出；雲端電腦不能連網安裝套件，可能無法輸出 PDF |
-| ChatGPT | 🧪 待測試 | 沙箱可能無法安裝 npm 套件，可能無法輸出 PDF |
+| 平台          | 狀態                                   | 說明                                                                            |
+| ------------- | -------------------------------------- | ------------------------------------------------------------------------------- |
+| Claude Cowork | ✅ 已實測（Cowork 功能已與 Chat 合併） | 範例截圖都是用 Cowork 製作的，實測 Opus 5.5 mediu、Sonnet 5.5 high 效果都很好。 |
+| Claude.ai     | ✅ 已實測                              | 需要開啟程式碼執行功能                                                          |
+| Claude Code   | 🧪 待測試                              | 在你的電腦上執行，需要先安裝相依工具                                            |
+| Codex         | 🧪 待測試                              | 在你的電腦上執行，需要先安裝相依工具                                            |
+| Gemini Spark  | ⚠️ 部分可用                            | 內容可以正常產出，但受限於 Gemini 模型，效果堪用但不多。                        |
+| Gemini 聊天室 | ✋ 先不要 ❌                           | 內容無法正常產出，效果相當炸裂，可愛龍還是可愛龍。                              |
+| ChatGPT Work  | ✅ 已實測                              | 使用 GPT-6 Astra high 可做到 Opus 5.5 八成效果，會有圖表文字些微跑版的問題。    |
 
 > [!NOTE]
-> 如果你在「待測試」的平台上成功或失敗，歡迎開 [Issue](../../issues) 告訴我，我會更新這張表。
+> 如果在各個平台上成功或失敗，歡迎開 [Issue](../../issues) 告訴我。
 
 ---
 
@@ -50,10 +51,10 @@
 
 依你使用的平台選擇一種方式。[Releases](../../releases) 頁面有兩種封包，請下載對應的那一個：
 
-| 檔案 | 適用平台 |
-|---|---|
-| `handout-remake.zip` | Claude Cowork、Claude.ai、ChatGPT |
-| `handout-remake-gemini.zip` | Google Gemini（含 Gemini Spark） |
+| 檔案                        | 適用平台                          |
+| --------------------------- | --------------------------------- |
+| `handout-remake.zip`        | Claude Cowork、Claude.ai、ChatGPT |
+| `handout-remake-gemini.zip` | Google Gemini（含 Gemini Spark）  |
 
 ### Claude Cowork 與 Claude.ai
 
@@ -67,14 +68,14 @@
 
 📖 官方說明：[Use Skills in Claude](https://support.claude.com/en/articles/12512180)、[Getting started with Cowork](https://support.claude.com/en/articles/13345190)
 
-### Google Gemini 與 Gemini Spark
+### Google Gemini Spark
 
 Gemini 的 skill 統一在 Gemini 網頁版的設定裡管理，裝好之後，一般對話與 Gemini Spark 都能使用。
 
 **開始之前**，請確認你符合 Gemini Spark 的使用條件：
 
 - 訂閱 **Google AI Pro 或 Ultra**。
-- 用**個人 Google 帳號**登入。學校發的帳號（例如 `@xxx.edu.tw`）目前無法使用。
+- 用**個人 Google 帳號**登入。
 - 年滿 **18 歲**，並且開啟了「**保留活動記錄**」（Keep Activity）。
 
 **安裝 skill**
@@ -91,7 +92,7 @@ Gemini 的 skill 統一在 Gemini 網頁版的設定裡管理，裝好之後，�
 
 1. 在 Gemini Spark 開一個新任務，上傳你的投影片或 PDF。
 2. 在輸入框輸入 `/`，從清單中選擇 `handout-remake`。
-3. 接著說明你要什麼，例如「幫我把第 2 章 p.37–46 做成講義」。
+3. 接著說明你要什麼，例如「幫我把第 2 章 p.37–46 做成講義」（也可以什麼都不說）。
 
 > [!WARNING]
 > 根據 Google 的官方說明，skill 裡的腳本不能連上網路，所以 Gemini Spark 可能無法安裝建置 PDF 所需的套件。目前實測的結果是**講義內容可以產出**，但不一定能得到排好版的 PDF。這時可以請 Gemini 把排好的 HTML 檔交給你，再參考〈[在自己的電腦上建置 PDF](#在自己的電腦上建置-pdf)〉轉成 PDF。
@@ -134,12 +135,12 @@ ChatGPT 的 skill 在側邊欄的 **Plugins → Skills** 分頁管理。這個�
 
 Claude Code 與 Codex 會在你的電腦上建置 PDF，所以要先安裝下列工具。Cowork 與 Claude.ai 在雲端沙箱執行，可以跳過這一步。
 
-| 工具 | 用途 | 必要性 |
-|---|---|---|
-| [Node.js](https://nodejs.org) 18 以上 | 執行建置腳本 | 必要 |
-| Playwright 與 Chromium | 把 HTML 轉成 PDF | 必要 |
-| poppler | 讀取 PDF 文字、轉縮圖、檢查字型 | 必要 |
-| LibreOffice | 把 PPT 轉成 PDF | 教材是 PPT 時才需要 |
+| 工具                                  | 用途                            | 必要性              |
+| ------------------------------------- | ------------------------------- | ------------------- |
+| [Node.js](https://nodejs.org) 18 以上 | 執行建置腳本                    | 必要                |
+| Playwright 與 Chromium                | 把 HTML 轉成 PDF                | 必要                |
+| poppler                               | 讀取 PDF 文字、轉縮圖、檢查字型 | 必要                |
+| LibreOffice                           | 把 PPT 轉成 PDF                 | 教材是 PPT 時才需要 |
 
 macOS 可以用 [Homebrew](https://brew.sh) 安裝：
 
@@ -323,12 +324,12 @@ AI 會依序完成這些事，過程中不需要你介入：
 
 想讓每一份講義都套用你的偏好，可以直接修改 skill 的檔案：
 
-| 想改的東西 | 修改的位置 |
-|---|---|
-| 讀者程度、語言、偏好 | `SKILL.md` 開頭的「讀者設定」 |
-| 教學順序、練習數量 | `SKILL.md` 的〈教學規則〉 |
-| 顏色、字級、間距 | `assets/handout.css` 開頭的 CSS 變數 |
-| iPad 尺寸 | `assets/handout.css` 的 `--page-w`、`--page-h`、`@page`，以及 `scripts/build.mjs` 的 viewport |
+| 想改的東西           | 修改的位置                                                                                    |
+| -------------------- | --------------------------------------------------------------------------------------------- |
+| 讀者程度、語言、偏好 | `SKILL.md` 開頭的「讀者設定」                                                                 |
+| 教學順序、練習數量   | `SKILL.md` 的〈教學規則〉                                                                     |
+| 顏色、字級、間距     | `assets/handout.css` 開頭的 CSS 變數                                                          |
+| iPad 尺寸            | `assets/handout.css` 的 `--page-w`、`--page-h`、`@page`，以及 `scripts/build.mjs` 的 viewport |
 
 > [!NOTE]
 > 修改後，Cowork、Claude.ai 與 Gemini 需要重新打包再上傳一次。在 repo 根目錄執行 `tools/package.sh`，就會在 `dist/` 產生兩種封包（只會打包已 commit 的內容）。
